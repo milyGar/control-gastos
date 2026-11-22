@@ -20,7 +20,7 @@ function eliminarGasto(gastos, id) {
 }
 
 function calcularTotal(gastos) {
-  return gastos.reduce((suma, g) => suma + g.monto, 0);
+  return gastos.reduce((suma, g) => suma - g.monto, 0);
 }
 
 function totalPorCategoria(gastos) {

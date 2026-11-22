@@ -33,4 +33,4 @@ function totalPorCategoria(gastos) {
 
 if (typeof module !== "undefined") {
   module.exports = { agregarGasto, eliminarGasto, calcularTotal, totalPorCategoria };
-}X
+}

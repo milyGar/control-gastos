@@ -4,31 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ControlGastos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
-    <h1>💰 Control de Gastos</h1>
+  <div class="app">
 
-    <form id="form-gasto">
-      <input name="descripcion" placeholder="Descripción" required>
-      <input name="monto" type="number" step="0.01" placeholder="Monto" required>
-      <select name="categoria">
-        <option>Comida</option>
-        <option>Transporte</option>
-        <option>Servicios</option>
-        <option>Entretenimiento</option>
-        <option>Otros</option>
-      </select>
-      <input name="fecha" type="date">
-      <button type="submit">Agregar</button>
-    </form>
+    <header class="hero">
+      <p class="hero-label">Total gastado</p>
+      <p class="hero-total"><span class="signo">$</span><span id="total">0.00</span></p>
+      <ul id="resumen" class="categorias"></ul>
+    </header>
 
-    <h2>Total: $<span id="total">0.00</span></h2>
-    <ul id="resumen"></ul>
-    <h3>Gastos registrados</h3>
-    <ul id="lista"></ul>
-  </main>
+    <main class="columnas">
+      <section class="panel">
+        <h2>Nuevo gasto</h2>
+        <form id="form-gasto">
+          <div class="campo">
+            <label for="descripcion">Descripción</label>
+            <input id="descripcion" name="descripcion" placeholder="Ej. Tacos con amigos" required>
+          </div>
+          <div class="campo">
+            <label for="monto">Monto</label>
+            <input id="monto" name="monto" type="number" step="0.01" min="0.01" placeholder="0.00" required>
+          </div>
+          <div class="campo">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria">
+              <option>Comida</option>
+              <option>Transporte</option>
+              <option>Servicios</option>
+              <option>Entretenimiento</option>
+              <option>Otros</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="fecha">Fecha</label>
+            <input id="fecha" name="fecha" type="date">
+          </div>
+          <button type="submit" class="agregar">Agregar gasto</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Gastos registrados</h2>
+        <ul id="lista" class="lista"></ul>
+      </section>
+    </main>
+
+  </div>
 
   <script src="src/gastos.js"></script>
   <script src="src/app.js"></script>

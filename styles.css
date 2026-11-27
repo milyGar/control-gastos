@@ -227,3 +227,4 @@ input:focus-visible, select:focus-visible, button:focus-visible {
   .columnas { grid-template-columns: 1fr; }
   .hero { padding: 1.5rem; }
 }
+.pie { text-align: center; color: var(--suave); font-size: 0.85rem; margin-top: 2rem; }

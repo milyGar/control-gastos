@@ -1,4 +1,18 @@
-let gastos = [];
+function cargar() {
+  try {
+    return JSON.parse(localStorage.getItem("gastos")) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function guardar() {
+  try {
+    localStorage.setItem("gastos", JSON.stringify(gastos));
+  } catch (e) {}
+}
+
+let gastos = cargar();
 
 const form = document.getElementById("form-gasto");
 const lista = document.getElementById("lista");
@@ -32,6 +46,7 @@ form.addEventListener("submit", (e) => {
     });
     form.reset();
     form.fecha.value = hoy();
+    guardar();
     render();
   } catch (err) {
     alert(err.message);
@@ -76,6 +91,7 @@ function render() {
     btn.setAttribute("aria-label", `Eliminar ${g.descripcion}`);
     btn.onclick = () => {
       gastos = eliminarGasto(gastos, g.id);
+      guardar();
       render();
     };
 
